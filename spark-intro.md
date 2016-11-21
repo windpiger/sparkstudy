@@ -53,7 +53,7 @@
    
    Spark框架是由一个核心执行引擎SparkCore，以及上层组件SparkSQL/StructStreaming/MLlib/GraphX,如下图所示：
    
-   ![based Spark 2.0](file:///Users/songjun/Documents/工作/EMR/spark/pic/sparkgit.jpeg) 
+   ![based Spark 2.0](https://github.com/windpiger/sparkstudy/blob/master/pic/sparkgit.jpeg) 
    
    上图是Spark 2.0的框架，从图上可以看出Spark可以读写各种存储系统，它可以基于Yarn/Mesos做资源调度，也可以有自己的资源管理standalone模式，所以Spark可以很容易的融入Hadoop的生态体系中。
    
@@ -90,7 +90,7 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
      
      如HadoopRDD的分区即对应Hadoop的split，Spark会根据分区的个数来生成/调度task.
      
-     ![partition](file:///Users/songjun/Documents/工作/EMR/spark/pic/rdd.jpeg)
+     ![partition](https://github.com/windpiger/sparkstudy/blob/master/pic/rdd.jpeg)
    
    - compute function: 如何读取数据集的分区中的每条数据
    
@@ -115,7 +115,7 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    	   |RangeDependency| a set of child partitions depend on a set of parent partitions|
    	   |PruneDependency|the child RDD contains a subset of partitions of the parents|
    	   
-   	   ![narrowDep](file:///Users/songjun/Documents/工作/EMR/spark/pic/narrowdep.jpeg)
+   	   ![narrowDep](https://github.com/windpiger/sparkstudy/blob/master/pic/narrowdep.jpeg)
    	   
    	   上图中两表的数据具有同样的分区，即相同key的数据分区在同一台机器上面，这种join场景不需要shuffle。
    	
@@ -131,7 +131,7 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    	   |--|--|
    	   |ShuffleDependency|shuffle操作中ShuffleRDD中使用|
    
-   ![narrowDep](file:///Users/songjun/Documents/工作/EMR/spark/pic/shuffledep.jpeg)
+   ![narrowDep](https://github.com/windpiger/sparkstudy/blob/master/pic/shuffledep.jpeg)
    
    - preferred locations: 分区所在的位置，Spark可以通过分区的位置来进行调度达到本地计算的目的
    
@@ -162,7 +162,7 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    
    了解了RDD的属性和算子，SparkCore的运行都是围绕RDD来进行的，流程如下：
    
-   ![spark-core-logic](file:///Users/songjun/Documents/工作/EMR/spark/pic/spark-core-logic.jpeg)
+   ![spark-core-logic](https://github.com/windpiger/sparkstudy/blob/master/pic/spark-core-logic.jpeg)
    
    如上图所示，当用户代码中有RDD的action操作，会触发作业的提交，通过DAGScheduler和TaskScheduler，最终到task的真正执行。
    
@@ -190,9 +190,9 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
  
   Spark 2.x版本弱化了RDD的概念，使用更高级的DataSet/DataFrame编程接口，DataSet/DataFrame的编程模型跟RDD类似。
   
-  ![rdd_df](file:///Users/songjun/Documents/工作/EMR/spark/pic/rdd_df.jpeg)
+  ![rdd_df](https://github.com/windpiger/sparkstudy/blob/master/pic/rdd_df.jpeg)
    
-  ![rdd_df2](file:///Users/songjun/Documents/工作/EMR/spark/pic/rdd_df2.jpeg)
+  ![rdd_df2](https://github.com/windpiger/sparkstudy/blob/master/pic/rdd_df2.jpeg)
    
   - DataSet
     
