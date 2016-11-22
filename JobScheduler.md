@@ -2,7 +2,7 @@ SparkCore
   
    当RDD/DataSet/DataSet遇到Action的算子就会触发Job提交，提交后由DAGScheduler和TaskScheduler进行调度。这两种调度针对的维度不同，DAGScheduler是Stage维度，TaskScheduler是TaskSet维度。如下图所示：
    
-   ![scheduler](file:///Users/songjun/Documents/工作/EMR/spark/pic/scheduler.jpeg)
+   ![scheduler](https://github.com/windpiger/sparkstudy/blob/master/pic/scheduler.jpeg)
    
 1. DAGScheduler
    
@@ -27,7 +27,7 @@ SparkCore
       当一个executor挂了，会重新调度失败的Stage
     
     DAGScheduler类图关系如下：
-    ![class_dagscheduler](file:///Users/songjun/Documents/工作/EMR/spark/pic/dagscheduler_class.jpeg)
+    ![class_dagscheduler](https://github.com/windpiger/sparkstudy/blob/master/pic/dagscheduler_class.jpeg)
     
     其中:
     - TaskScheduler
