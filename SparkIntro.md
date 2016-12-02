@@ -65,14 +65,13 @@
    
 #### 组件
 
-   
-   |名称|描述| 
-   |--|--|-- 
-   |SparkCore|核心执行引擎，负责Job/Task调度、存储管理、网络传输、容错处理等，对外提供RDD级别 API|
-   |SparkSQL|处理结构化数据，提供sql语句以及DataFrame/DataSet两种使用方式，支持Hive/json/parquet等数据源，一般做离线ETL处理/交互式查询|
-   |StructStreaming|基于SparkSQL的流处理引擎，充分利用SparkSQL的Catalyst来优化性能，并且使用DataSet/DataFrame的api来实现流处理逻辑，简单易用|
-   |MLlib|提供机器学习相关的算法，Spark在迭代计算方面有很大优势，运行速度很快|
-   |GrapX|图计算，支持很多图计算的操作|
+| 名称  | 描述 |
+| ------------- | ------------- |
+|SparkCore|核心执行引擎，负责Job/Task调度、存储管理、网络传输、容错处理等，对外提供RDD级别 API|
+|SparkSQL|处理结构化数据，提供sql语句以及DataFrame/DataSet两种使用方式，支持Hive/json/parquet等数据源，一般做离线ETL处理/交互式查询|
+|StructStreaming|基于SparkSQL的流处理引擎，充分利用SparkSQL的Catalyst来优化性能，并且使用DataSet/DataFrame的api来实现流处理逻辑，简单易用|
+|MLlib|提供机器学习相关的算法，Spark在迭代计算方面有很大优势，运行速度很快|
+|GrapX|图计算，支持很多图计算的操作|
    
 ### Spark编程模型
 
@@ -109,8 +108,8 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    	   
    	   窄依赖的RDD可以进行pipeline操作.
    	   
-   	   |类名|描述|
-   	   |--|--|
+	   | 类名  | 描述 |
+| ------------- | ------------- |
    	   |OneToOneDependency|一个子RDD分区对应一个父RDD分区|
    	   |RangeDependency| a set of child partitions depend on a set of parent partitions|
    	   |PruneDependency|the child RDD contains a subset of partitions of the parents|
@@ -127,8 +126,8 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    	    
    	    宽依赖是Spark进行Job Stage划分的依据.
    	    
-   	   |类名|描述|
-   	   |--|--|
+	   | 类名  | 描述 |
+| ------------- | ------------- |
    	   |ShuffleDependency|shuffle操作中ShuffleRDD中使用|
    
    ![narrowDep](https://github.com/windpiger/sparkstudy/blob/master/pic/shuffledep.jpeg)
@@ -142,10 +141,10 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    &nbsp;&nbsp;&nbsp;&nbsp;Spark提供了很多对RDD进行处理的算子，用户可以通过各种不同的算子进行组合来完成数据处理工作。
    RDD算子可以分为两大类，transform和action.transform算子不会触发Spark Job的提交，它作用于RDD后会生成一个新的RDD，只有action算子才能触发，最终输出结果，常用的算子如下：
    
-   |类型|算子|
-   |--|--|
-   |transform|map/filter/flatMap/groupByKey/reduceByKey/join等|
-   |action|reduce/collect/count/take/saveAsTextFile等|
+| 类型  | 算子 |
+| ------------- | ------------- |
+|transform|map/filter/flatMap/groupByKey/reduceByKey/join等|
+|action|reduce/collect/count/take/saveAsTextFile等|
      
    如:
    
@@ -170,10 +169,10 @@ Spark有两种编程模型，一种是基于RDD的，另一种是基于DataSet/D
    
      Task是一个执行单元，Spark会根据RDD的分区个数来确定Task个数，有两种Task类型:
      
-     |类型|描述|
-     |-|-|
-     |ShuffleMapTask|输入RDD，经过一系列的transform算子的处理，输出按照partitioner进行shuffle|
-     |ResultTask|输入RDD(如ShuffleMapTask的输出)，经过一系列的transform算子的处理，输出最终结果|
+| 类型  | 描述 |
+| ------------- | ------------- |
+|ShuffleMapTask|输入RDD，经过一系列的transform算子的处理，输出按照partitioner进行shuffle|
+|ResultTask|输入RDD(如ShuffleMapTask的输出)，经过一系列的transform算子的处理，输出最终结果|
     
      `Spark的执行并不是对每个transform/action算子生成一个task，而是根据ShuffleDependency(宽依赖)为边界，边界之内的所有窄依赖的算子在一个ShuffleMapTask内以pipeline的方式执行(如图所示)`
      
