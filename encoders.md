@@ -22,11 +22,11 @@
    
    Spark2.0支持的`Encoder[T]`的类型如下：
    
-   |支持的Encoder类型|
-   |--|
-   |Product子类|
-   |Int/Long/Double/Float/Byte/Short/Boolean/String|
-   |Seq/Array|
+| 支持的Encoder类型 |
+| ---- |
+| Product子类 |
+| Int/Long/Double/Float/Byte/Short/Boolean/String |
+| Seq/Array |
 
    
   `ExpressionEncoder`是`trait Encoder[T]`的唯一实现类：
